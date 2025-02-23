@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
 @import "tailwindcss";
-
 
 .rubik-mono-one-regular {
   font-family: "Rubik Mono One", serif;
@@ -12,4 +11,18 @@ body {
   font-family: "Rubik Mono One", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@layer components {
+  .random-froggy {
+    width: 200px;
+    height: auto;
+    position: fixed;
+    right: 50px;
+    top: 50%;
+  }
 }

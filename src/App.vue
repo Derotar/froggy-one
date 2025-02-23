@@ -1,5 +1,49 @@
 <script setup lang="ts">
 import { NCarousel } from "naive-ui";
+
+const handleFrogClick = (e: Event) => {
+  const audio = new Audio("/audio/frog.mp3");
+  audio.volume = Math.random();
+  audio.play();
+
+  const froggySize = 100 + 300 * Math.random();
+
+  const monet = () => -0.5 + Math.random() > 0;
+
+  const isFroggySideX = monet();
+  const isFroggyTop = monet();
+  const isFroggyLeft = monet();
+
+  const froggySidePosition = isFroggySideX
+    ? window.innerHeight * Math.random()
+    : window.innerWidth * Math.random();
+
+  //lets create froggies at corners of screen
+  const img = document.createElement("img");
+  img.src = "/img/froggy.png";
+  img.style.cssText = `
+    position: fixed;
+    top: ${
+      isFroggySideX ? `${froggySidePosition}px` : isFroggyTop ? "0px" : `100%`
+    };
+    left: ${
+      isFroggySideX
+        ? isFroggyLeft
+          ? "0px"
+          : `100%`
+        : `${froggySidePosition}px`
+    };
+    z-index: 50;
+    width: ${froggySize}px;
+    height: auto;
+    transform: translate(-50%,-50%) ${
+      !isFroggySideX && isFroggyTop ? "scaleY(-1)" : ""
+    } ${isFroggySideX && isFroggyLeft ? "scaleX(-1)" : ""};
+  `;
+
+  document.body.append(img);
+  setTimeout(() => img.remove(), 1000);
+};
 </script>
 
 <template>
@@ -8,8 +52,10 @@ import { NCarousel } from "naive-ui";
       <img
         src="/img/froggy.png"
         alt="froggy-png"
-        class="w-[200px] h-auto shrink-0"
+        class="w-[200px] h-auto shrink-0 cursor-pointer hover:scale-105 transition-all ease-linear duration-200"
+        @click="handleFrogClick"
       />
+
       <h1 class="relative z-10 left-[-1em] text-6xl">Froggy one</h1>
     </div>
 
@@ -49,12 +95,11 @@ import { NCarousel } from "naive-ui";
       <p>
         Там было как раз чем наградить себя за прошедшую неделю, я купил
         копченого муксуна, две книжки в издательстве самокат, алтайского варенья
-        без сахара: с черникой, брусникой и клюквой.
-        И купил себе желтую кофту из Captain's Morgan.
-        Конечно, до конца не уверен, нравится мне она или нет, но с чайкой были только женские, что грустно
+        без сахара: с черникой, брусникой и клюквой. И купил себе желтую кофту
+        из Captain's Morgan. Конечно, до конца не уверен, нравится мне она или
+        нет, но с чайкой были только женские, что грустно
       </p>
     </section>
-
 
     <section>
       <h2>Дата 22.02.2025</h2>
@@ -66,9 +111,7 @@ import { NCarousel } from "naive-ui";
         <img class="w-full h-[200px] object-cover" src="/img/content/4.png" />
       </NCarousel>
 
-      <p>
-        Приехали мои жабки!!!
-      </p>
+      <p>Приехали мои жабки!!!</p>
     </section>
   </div>
 </template>
