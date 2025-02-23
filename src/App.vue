@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NCarousel } from "naive-ui";
 
-const handleFrogClick = (e: Event) => {
+const handleFrogClick = () => {
   const audio = new Audio("/audio/frog.mp3");
   audio.volume = Math.random();
   audio.play();
