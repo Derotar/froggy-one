@@ -47,16 +47,21 @@ const handleFrogClick = () => {
 </script>
 
 <template>
-  <div class="w-full flex flex-col max-w-[1240px] mx-auto">
-    <div class="flex w-full items-center justify-center pt-[64px] pb-[32px]">
+  <div class="w-full flex flex-col max-w-[1240px] mx-auto px-4 gap-4">
+    <div
+      class="flex w-full lg:flex-row items-center justify-center pt-[64px] pb-[32px]"
+    >
       <img
         src="/img/froggy.png"
         alt="froggy-png"
-        class="w-[200px] h-auto shrink-0 cursor-pointer hover:scale-105 transition-all ease-linear duration-200"
+        class="w-[150px] lg:w-[200px] h-auto shrink-0 cursor-pointer hover:scale-105 transition-all ease-linear duration-200"
         @click="handleFrogClick"
       />
 
-      <h1 class="relative z-10 left-[-1em] text-6xl">Froggy one</h1>
+      <h1 class="relative z-10 left-[-1em] text-4xl lg:text-6xl">
+        Froggy<br class="block lg:hidden" />
+        one
+      </h1>
     </div>
 
     <p>Здесь описание того, куда я хожу, и что я узнал новенького за эти дни</p>
@@ -68,6 +73,45 @@ const handleFrogClick = () => {
       Всякие вещи, которые я хочу, я буду размещать тут, т.к мне дико этого
       хочется, иметь реально свое занятие и свои страсти
     </p>
+
+    <section>
+      <h2>Дата 23.02.2025</h2>
+
+      <NCarousel show-arrow class="rounded-[24px] w-full max-w-[300px]">
+        <img class="w-full h-[200px] object-cover" src="/img/froggy.png" />
+      </NCarousel>
+
+      <p>
+        Сегодня я досмотрел до конца
+        <a
+          href="https://www.youtube.com/watch?v=8OHe6chCWTE&t=260s"
+          target="_blank"
+          class="text-blue-600 underline"
+          >видос ульби</a
+        >
+        по деплою сайта, оч доволен
+      </p>
+      <p>Добавил жабок, которые вылезают по бокам, мне очень понравилось</p>
+      <p>
+        Неважно себя чувствую, но разузнал, про то, куда я хочу пойти и потащить
+        пацанов на день рождения
+      </p>
+      <p>
+        Решил купить на горбушке onyx boox note air 4c, не уверен честно насчет
+        выбора цвета, но распознавание текста, цена там, и тд, заставляют меня
+        склониться к покупке именно этого аппарата. А не, например,
+        <b>onyx boox ultra tab pro</b> или <b>remarkable paper pro</b>
+      </p>
+
+      <p>
+        Перестраиваю свой рацион, скушал сегодня кусочек муксуна, поел хлебцев
+        рисовых в виде бутербродов, и скушал долму в консервах, вышло очень даже
+        неплохо
+      </p>
+      <p>По калориям и белку все вроде ок</p>
+      <p>В целом, большой молодец! Особенно за деплой сайта</p>
+      <p>Еще посмотрел кучу серий интернов, где то 1 сезон, 60-80 серии</p>
+    </section>
 
     <section>
       <h2>Дата 22.02.2025</h2>
